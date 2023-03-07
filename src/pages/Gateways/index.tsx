@@ -13,12 +13,8 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
 import "./styles.css";
 import CloseIcon from "@mui/icons-material/Close";
-
-interface IFormInput {
-  name: string;
-  description: string;
-  gatewayId: string;
-}
+import { IFormInput } from "../../interface";
+import { TextFieldComponent } from "../../components/TextFields";
 
 const schema = yup
   .object({
@@ -83,67 +79,27 @@ export const Gateways = () => {
     >
       <Typography variant="h5">Gateway Page</Typography>
       <Box component={"form"} onSubmit={handleSubmit(onSubmit)}>
-        <Box
-          sx={{
-            mt: 2,
-            display: "flex",
-            flexDirection: "column",
-            gap: 1,
-          }}
-        >
-          <Controller
-            name="name"
-            control={control}
-            render={({ field }) => (
-              <TextField {...field} variant="outlined" label="Name" />
-            )}
-          />
-          {errors.name && (
-            <Typography sx={{ color: "#ff0000" }}>Name is required!</Typography>
-          )}
-        </Box>
-        <Box
-          sx={{
-            mt: 2,
-            display: "flex",
-            flexDirection: "column",
-            gap: 1,
-          }}
-        >
-          <Controller
-            name="description"
-            control={control}
-            render={({ field }) => (
-              <TextField {...field} variant="outlined" label="Description" />
-            )}
-          />
-          {errors.description && (
-            <Typography sx={{ color: "#ff0000" }}>
-              Description is required!
-            </Typography>
-          )}
-        </Box>
-        <Box
-          sx={{
-            my: 2,
-            display: "flex",
-            flexDirection: "column",
-            gap: 1,
-          }}
-        >
-          <Controller
-            name="gatewayId"
-            control={control}
-            render={({ field }) => (
-              <TextField {...field} variant="outlined" label="Gateway Id" />
-            )}
-          />
-          {errors.gatewayId && (
-            <Typography sx={{ color: "#ff0000" }}>
-              GatewayId is required!
-            </Typography>
-          )}
-        </Box>
+        <TextFieldComponent
+          label={"Name"}
+          name={"name"}
+          marginDirection={"mt"}
+          control={control}
+          errors={errors}
+        />
+        <TextFieldComponent
+          label={"Description"}
+          name={"description"}
+          marginDirection={"mt"}
+          control={control}
+          errors={errors}
+        />
+        <TextFieldComponent
+          label={"Gateway Id"}
+          name={"gatewayId"}
+          marginDirection={"my"}
+          control={control}
+          errors={errors}
+        />
         <Button type="submit" variant="contained">
           Register
         </Button>
