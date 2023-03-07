@@ -1,20 +1,12 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import {
-  Box,
-  Button,
-  TextField,
-  Typography,
-  Snackbar,
-  IconButton,
-  Alert,
-} from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useState } from "react";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
 import "./styles.css";
-import CloseIcon from "@mui/icons-material/Close";
 import { IFormInput } from "../../interface";
-import { TextFieldComponent } from "../../components/TextFields";
+import { TextFieldComponent } from "../../components/TextFieldComponent";
+import { SnackbarComponent } from "../../components/Snackbar";
 
 const schema = yup
   .object({
@@ -24,7 +16,7 @@ const schema = yup
   })
   .required();
 
-export const Gateways = () => {
+export const Gateway = () => {
   const {
     control,
     handleSubmit,
@@ -49,7 +41,7 @@ export const Gateways = () => {
   };
 
   const handleCloseToast = (
-    event: React.SyntheticEvent | Event,
+    event?: React.SyntheticEvent | Event,
     reason?: string
   ) => {
     if (reason === "clickaway") {
@@ -58,14 +50,6 @@ export const Gateways = () => {
 
     setIsToastOpen(false);
   };
-
-  const action = (
-    <>
-      <IconButton aria-label="close" color="inherit" onClick={handleCloseToast}>
-        <CloseIcon fontSize="small" />
-      </IconButton>
-    </>
-  );
   return (
     <Box
       sx={{
@@ -106,20 +90,12 @@ export const Gateways = () => {
       </Box>
 
       {/* Snackbar here */}
-      <Snackbar
+      <SnackbarComponent
+        duration={6000}
+        label={"Gateway registered successfully"}
         open={isToastOpen}
-        autoHideDuration={6000}
         onClose={handleCloseToast}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      >
-        <Alert
-          onClose={handleCloseToast}
-          severity="success"
-          sx={{ width: "100%" }}
-        >
-          Gateway registered successfully!
-        </Alert>
-      </Snackbar>
+      />
     </Box>
   );
 };
