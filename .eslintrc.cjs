@@ -36,5 +36,7 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
     "react/prop-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "jsx-a11y/no-autofocus": "off"
   },
 };
