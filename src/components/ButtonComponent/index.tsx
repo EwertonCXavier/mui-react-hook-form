@@ -1,10 +1,10 @@
-import { Button, List, Typography, styled } from "@mui/material";
-import { useMemo } from "react";
-import GridViewIcon from "@mui/icons-material/GridView";
-import RssFeedIcon from "@mui/icons-material/RssFeed";
-import CloudIcon from "@mui/icons-material/Cloud";
+import { Button, List, Typography, styled } from '@mui/material';
+import { useMemo } from 'react';
+import GridViewIcon from '@mui/icons-material/GridView';
+import RssFeedIcon from '@mui/icons-material/RssFeed';
+import CloudIcon from '@mui/icons-material/Cloud';
 
-export type buttonOptions = "gateways" | "devices" | "dashboard";
+export type buttonOptions = 'gateways' | 'devices' | 'dashboard';
 
 interface IButtonComponentProps {
   label: buttonOptions;
@@ -18,29 +18,29 @@ export type IRetrieveIcons = {
 export const ButtonComponent = ({ label, onClick }: IButtonComponentProps) => {
   const retrieveIcon = useMemo<IRetrieveIcons>(() => {
     return {
-      gateways: <RssFeedIcon sx={{ color: "#FFF" }} color="primary" />,
-      dashboard: <GridViewIcon sx={{ color: "#FFF" }} color="primary" />,
-      devices: <CloudIcon sx={{ color: "#FFF" }} color="primary" />,
+      gateways: <RssFeedIcon sx={{ color: '#FFF' }} color="primary" />,
+      dashboard: <GridViewIcon sx={{ color: '#FFF' }} color="primary" />,
+      devices: <CloudIcon sx={{ color: '#FFF' }} color="primary" />,
     };
   }, []);
 
   return (
-    <List component="nav" sx={{ width: "100%" }}>
+    <List component="nav" sx={{ width: '100%' }}>
       <Button
         sx={{
           px: 4,
           py: 2,
-          display: "flex",
-          justifyContent: "space-around",
+          display: 'flex',
+          justifyContent: 'space-around',
           gap: 2,
-          width: "100%",
+          width: '100%',
 
-          ":hover": {
-            bgcolor: "#1567BC",
-            color: "white",
+          ':hover': {
+            bgcolor: '#1567BC',
+            color: 'white',
           },
         }}
-        variant="contained"
+        variant="text"
         color="primary"
         onClick={onClick}
       >
