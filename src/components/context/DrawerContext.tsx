@@ -1,4 +1,4 @@
-import { useContext, createContext, useCallback, useState } from "react";
+import { useContext, createContext, useCallback, useState } from 'react';
 
 interface IDrawerOption {
   icon: string;
@@ -32,13 +32,6 @@ export const DrawerProvider: React.FC<IDrawerProviderProps> = ({
   const toggleDrawerOpen = useCallback(() => {
     setIsDrawerOpen((oldDrawerOpen) => !oldDrawerOpen);
   }, []);
-
-  const handleSetDrawerOptions = useCallback(
-    (newDrawerOptions: IDrawerOption[]) => {
-      setDrawerOptions(newDrawerOptions);
-    },
-    []
-  );
 
   return (
     <DrawerContext.Provider

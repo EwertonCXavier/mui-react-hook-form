@@ -1,19 +1,20 @@
 import { Box, useMediaQuery, useTheme, Drawer } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import BasicButtons from '../BasicButtons';
 import ToggleTheme from '../ToggleTheme';
-import { useAppThemeContext, useDrawerContext } from '../context';
+import { useLocation } from 'react-router';
+// import { useAppThemeContext, useDrawerContext } from '../context';
 
 interface ISideBarProps {
   children?: React.ReactNode;
 }
 
-const SideBar: React.FC<ISideBarProps> = ({ children }) => {
+const SideBar: React.FC<ISideBarProps> = () => {
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const { isDrawerOpen, drawerOptions, toggleDrawerOpen } = useDrawerContext();
-  const { toggleTheme } = useAppThemeContext();
+  // const { isDrawerOpen, drawerOptions, toggleDrawerOpen } = useDrawerContext();
+  // const { toggleTheme } = useAppThemeContext();
 
   return (
     <div>

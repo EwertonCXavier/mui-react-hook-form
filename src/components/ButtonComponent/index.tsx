@@ -1,29 +1,21 @@
-import { Button, List, Typography, styled } from '@mui/material';
-import { useMemo } from 'react';
-import GridViewIcon from '@mui/icons-material/GridView';
-import RssFeedIcon from '@mui/icons-material/RssFeed';
-import CloudIcon from '@mui/icons-material/Cloud';
+import { Button, List, Typography } from '@mui/material';
+import { buttonOptionsLabels } from '../../interface';
 
 export type buttonOptions = 'gateways' | 'devices' | 'dashboard';
 
 interface IButtonComponentProps {
-  label: buttonOptions;
+  label: buttonOptionsLabels;
   onClick?: () => void;
+  active?: boolean;
+  data: any;
 }
 
-export type IRetrieveIcons = {
-  [key in buttonOptions]: JSX.Element;
-};
-
-export const ButtonComponent = ({ label, onClick }: IButtonComponentProps) => {
-  const retrieveIcon = useMemo<IRetrieveIcons>(() => {
-    return {
-      gateways: <RssFeedIcon sx={{ color: '#FFF' }} color="primary" />,
-      dashboard: <GridViewIcon sx={{ color: '#FFF' }} color="primary" />,
-      devices: <CloudIcon sx={{ color: '#FFF' }} color="primary" />,
-    };
-  }, []);
-
+export const ButtonComponent = ({
+  label,
+  onClick,
+  active = false,
+  data,
+}: IButtonComponentProps) => {
   return (
     <List component="nav" sx={{ width: '100%' }}>
       <Button
@@ -35,6 +27,10 @@ export const ButtonComponent = ({ label, onClick }: IButtonComponentProps) => {
           gap: 2,
           width: '100%',
 
+          ...(active && {
+            backgroundColor: 'rgba(255, 255, 255, 0.04)',
+          }),
+
           ':hover': {
             bgcolor: '#1567BC',
             color: 'white',
@@ -44,10 +40,10 @@ export const ButtonComponent = ({ label, onClick }: IButtonComponentProps) => {
         color="primary"
         onClick={onClick}
       >
-        {retrieveIcon[label.toLowerCase() as buttonOptions]}
+        {data.icon}
 
         <Typography fontSize="0.9rem" color="#FFF">
-          {label}
+          {data.label}
         </Typography>
       </Button>
     </List>

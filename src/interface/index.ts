@@ -28,3 +28,5 @@ export type buttonOptions = 'gateways' | 'devices' | 'dashboard';
 export type IItems = {
   [key in buttonOptions]: Column[];
 }
+
+export type buttonOptionsLabels = 'Gateways' | 'Devices' | 'Dashboard';

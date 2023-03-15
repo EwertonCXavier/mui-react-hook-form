@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Gateway } from '../pages/Gateway';
 import { ManageGateways } from '../pages/Gateway/ManageGateways';
 
-import { useAppThemeContext } from "../components/context";
+import { useAppThemeContext } from '../components/context';
 
 export const AppRoutes = () => {
   const { toggleTheme } = useAppThemeContext();
