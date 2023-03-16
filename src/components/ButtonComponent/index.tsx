@@ -1,4 +1,4 @@
-import { Box, Button, List, Typography, useTheme } from '@mui/material';
+import { Button, List, Typography, useTheme } from '@mui/material';
 
 export type buttonOptions = 'gateways' | 'devices' | 'dashboard';
 export type labelOptions = 'Gateways' | 'Devices' | 'Dashboard';
