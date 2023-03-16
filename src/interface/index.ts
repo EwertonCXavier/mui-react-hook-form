@@ -30,3 +30,16 @@ export type IItems = {
 }
 
 export type buttonOptionsLabels = 'Gateways' | 'Devices' | 'Dashboard';
+
+export interface ITenantSelector {
+  options: string[];
+  handleToggle: () => void;
+  anchorRef: React.RefObject<HTMLDivElement>;
+  selectedIndex: number;
+  open: boolean;
+  handleClose: (event: Event) => void;
+  handleMenuItemClick: (
+    event: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    index: number,
+  ) => void;
+}

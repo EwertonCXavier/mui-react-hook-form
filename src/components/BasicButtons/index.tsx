@@ -1,6 +1,4 @@
 import Stack from '@mui/material/Stack';
-import { ThemeProvider } from '@mui/material';
-import { LightTheme } from '../../themes';
 import { ButtonComponent } from '../ButtonComponent';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
