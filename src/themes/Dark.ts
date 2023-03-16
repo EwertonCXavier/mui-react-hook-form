@@ -19,7 +19,15 @@ export const DarkTheme = createTheme ({
   typography: {
     allVariants:{
       color: 'white',
-      
+    }
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none'
+        }
+      }
     }
   }
 });

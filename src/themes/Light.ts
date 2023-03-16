@@ -7,6 +7,7 @@ export const LightTheme = createTheme ({
     primary:{
       main:'#1C2536', //dark blue
       contrastText: '#FFFFFF',
+      light: '#9AA4AE',
     },
     secondary:{
       main:'#1567BC', // blue - button
@@ -20,7 +21,15 @@ export const LightTheme = createTheme ({
   typography: {
     allVariants:{
       color: 'black',
-      
+    }
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none'
+        }
+      }
     }
   }
 });

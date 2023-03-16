@@ -1,10 +1,10 @@
-import { Button, List, Typography } from '@mui/material';
-import { buttonOptionsLabels } from '../../interface';
+import { Box, Button, List, Typography, useTheme } from '@mui/material';
 
 export type buttonOptions = 'gateways' | 'devices' | 'dashboard';
+export type labelOptions = 'Gateways' | 'Devices' | 'Dashboard';
 
 interface IButtonComponentProps {
-  label: buttonOptionsLabels;
+  label: labelOptions;
   onClick?: () => void;
   active?: boolean;
   data: any;
@@ -16,14 +16,16 @@ export const ButtonComponent = ({
   active = false,
   data,
 }: IButtonComponentProps) => {
+  const theme = useTheme();
   return (
     <List component="nav" sx={{ width: '100%' }}>
       <Button
         sx={{
-          px: 4,
-          py: 2,
+          px: 2,
+          py: 1,
           display: 'flex',
-          justifyContent: 'space-around',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
           gap: 2,
           width: '100%',
 
@@ -41,9 +43,11 @@ export const ButtonComponent = ({
         onClick={onClick}
       >
         {data.icon}
-
-        <Typography fontSize="0.9rem" color="#FFF">
-          {data.label}
+        <Typography
+          fontSize="0.875rem"
+          color={theme.palette.primary.contrastText}
+        >
+          {label}
         </Typography>
       </Button>
     </List>

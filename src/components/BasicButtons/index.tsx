@@ -3,7 +3,7 @@ import { ThemeProvider } from '@mui/material';
 import { LightTheme } from '../../themes';
 import { ButtonComponent } from '../ButtonComponent';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import GridViewIcon from '@mui/icons-material/GridView';
 import RssFeedIcon from '@mui/icons-material/RssFeed';
 import CloudIcon from '@mui/icons-material/Cloud';
@@ -45,11 +45,10 @@ export default function BasicButtons() {
   return (
     <Stack
       flexDirection="column"
-      spacing={2}
       display="flex"
       alignItems="center"
+      width="100%"
     >
-      <ThemeProvider theme={LightTheme} />
       {sidebarButtons.map((sidebarButton) => (
         <ButtonComponent
           key={sidebarButton.label}
